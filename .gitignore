@@ -1,0 +1,6 @@
+objs
+*.o
+*.d
+term3d
+*.txt
+libft.a
