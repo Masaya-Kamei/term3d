@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 18:07:44 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 18:26:23 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <fcntl.h>
 
 // variable
-# define CANVAS_WIDTH 100
+# define CANVAS_WIDTH 80
 # define CANVAS_HEIGHT 40
 # define USLEEP_TIME 100000
 # define ROT_ANGLE_DENOM 48.0
