@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 12:26:08 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 13:58:34 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define INIT_ROTATE_Z 0.0
 # define LINE_DRAW_FLAG 1
 # define Z_RANGE 1.0
-# define ZOOM_IN_ADDITION 0.8
+# define ZOOM_IN_ADDITION 1.0
 
 // constant
 # define GNL_BUFFER_SIZE 1000

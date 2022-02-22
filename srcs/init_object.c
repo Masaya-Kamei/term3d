@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:32:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 11:48:38 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 13:59:54 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,6 @@ static void	scale_object(t_p_3d *p_3ds, const int p_num)
 		p_3ds[i].x = (p_3ds[i].x / max_dist) * new_max_dist;
 		p_3ds[i].y = (p_3ds[i].y / max_dist) * new_max_dist;
 		p_3ds[i].z = (p_3ds[i].z / max_dist) * new_max_dist;
-		p_3ds[i].x *= Z_RANGE;
-		p_3ds[i].y *= Z_RANGE;
-		p_3ds[i].z *= Z_RANGE;
 		p_3ds[i].x *= ZOOM_IN_ADDITION;
 		p_3ds[i].y *= ZOOM_IN_ADDITION;
 		p_3ds[i].z *= ZOOM_IN_ADDITION;
