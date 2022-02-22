@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:32:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 13:59:54 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 17:11:39 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	move_object_to_origin(t_p_3d *p_3ds, const int p_num)
 	}
 }
 
-static double	get_max_distance_of_p_3d(t_p_3d *p_3ds, const int p_num)
+static double	get_max_distance_from_origin(t_p_3d *p_3ds, const int p_num)
 {
 	int		i;
 	double	max_dist;
@@ -71,7 +71,7 @@ static double	get_max_distance_of_p_3d(t_p_3d *p_3ds, const int p_num)
 static void	scale_object(t_p_3d *p_3ds, const int p_num)
 {
 	int				i;
-	const double	max_dist = get_max_distance_of_p_3d(p_3ds, p_num);
+	const double	max_dist = get_max_distance_from_origin(p_3ds, p_num);
 	const double	new_max_dist = fmin(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
 
 	i = 0;

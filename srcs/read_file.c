@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:54:47 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 16:06:13 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 17:32:55 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,17 @@ static int	get_p_num_from_lines(t_list *lines_list)
 	last = ft_lstlast(lines_list);
 	if (((char *)last->content)[0] == '\0' && last->next == NULL)
 		p_num--;
+	if (p_num == 0)
+		exit_with_errout("Invalid file");
 	return (p_num);
 }
 
 static t_p_3d	parse_line_to_p_3d(const char *line)
 {
 	t_p_3d	p_3d;
+	char	c;
 
-	if (sscanf(line, "%lf,%lf,%lf", &p_3d.x, &p_3d.y, &p_3d.z) != 3)
+	if (sscanf(line, "%lf,%lf,%lf%c", &p_3d.x, &p_3d.y, &p_3d.z, &c) != 3)
 		exit_with_errout("Invalid file");
 	if (isinf(p_3d.x) || isinf(p_3d.y) || isinf(p_3d.z))
 		exit_with_errout("Invalid file");
