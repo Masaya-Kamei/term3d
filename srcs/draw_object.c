@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:35:14 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 13:59:44 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 14:13:03 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,16 @@ static void	draw_line_to_canvas(
 	}
 }
 
+static void	draw_point_to_canvas(
+	t_p_2d p_2d, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
+{
+	if (p_2d.x >= 0 && p_2d.x < CANVAS_WIDTH
+		&& p_2d.y >= 0 && p_2d.y < CANVAS_HEIGHT)
+	{
+		canvas[(int)p_2d.y][(int)p_2d.x] = '.';
+	}
+}
+
 void	draw_object_to_canvas(
 	t_p_3d *p_3ds, const int p_num, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
 {
@@ -79,11 +89,7 @@ void	draw_object_to_canvas(
 			prev_p_2d = p_2d;
 		}
 		else
-		{
-			if (p_2d.x >= 0 && p_2d.x < CANVAS_WIDTH
-				&& p_2d.y >= 0 && p_2d.y < CANVAS_HEIGHT)
-				canvas[(int)p_2d.y][(int)p_2d.x] = '.';
-		}
+			draw_point_to_canvas(p_2d, canvas);
 		i++;
 	}
 }
