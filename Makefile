@@ -6,7 +6,7 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 13:11:24 by mkamei            #+#    #+#              #
-#    Updated: 2022/02/22 10:58:18 by mkamei           ###   ########.fr        #
+#    Updated: 2022/02/22 14:22:40 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,11 +58,11 @@ $(LIBFT):
 
 clean	:
 			$(RM) $(OBJS) $(DEPS)
-# make clean -C $(LIBFTDIR)
+			make clean -C $(LIBFTDIR)
 
 fclean	: 	clean
 			$(RM) $(NAME)
-# make fclean -C $(LIBFTDIR)
+			make fclean -C $(LIBFTDIR)
 
 re		:	fclean all
 
