@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:54:47 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/21 16:34:46 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 16:06:13 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static t_p_3d	*convert_lines_to_p_3d(t_list *lines_list, const int p_num)
 
 	p_3ds = (t_p_3d *)malloc(sizeof(t_p_3d) * p_num);
 	if (p_3ds == NULL)
-		exit_with_errout("malloc");
+		exit_with_perrout("malloc");
 	i = 0;
 	while (i < p_num)
 	{

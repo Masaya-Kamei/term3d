@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:35:14 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 14:13:03 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 15:40:22 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ static t_p_2d	get_canvas_p_2d_from_p_3d(t_p_3d p_3d)
 	return (p_2d);
 }
 
+static void	draw_point_to_canvas(
+	t_p_2d p, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
+{
+	if (p.x >= 0 && p.x < CANVAS_WIDTH && p.y >= 0 && p.y < CANVAS_HEIGHT)
+	{
+		canvas[(int)p.y][(int)p.x] = '.';
+	}
+}
+
 static void	draw_line_to_canvas(
 	t_p_2d p, t_p_2d q, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
 {
@@ -53,21 +62,10 @@ static void	draw_line_to_canvas(
 	y_step /= count;
 	while (count > 0)
 	{
-		if (p.x >= 0 && p.x < CANVAS_WIDTH && p.y >= 0 && p.y < CANVAS_HEIGHT)
-			canvas[(int)p.y][(int)p.x] = '.';
+		draw_point_to_canvas(p, canvas);
 		p.x += x_step;
 		p.y += y_step;
 		count--;
-	}
-}
-
-static void	draw_point_to_canvas(
-	t_p_2d p_2d, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
-{
-	if (p_2d.x >= 0 && p_2d.x < CANVAS_WIDTH
-		&& p_2d.y >= 0 && p_2d.y < CANVAS_HEIGHT)
-	{
-		canvas[(int)p_2d.y][(int)p_2d.x] = '.';
 	}
 }
 

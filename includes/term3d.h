@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 13:58:34 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 16:14:33 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define CANVAS_HEIGHT 40
 # define USLEEP_TIME 100000
 # define ROT_ANGLE_DENOM 48
-# define TERMINAL_Y_PER_X 2.5
+# define TERMINAL_Y_PER_X 2.0
 # define INIT_ROTATE_X 0.0
 # define INIT_ROTATE_Y 0.0
 # define INIT_ROTATE_Z 0.0
