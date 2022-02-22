@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/21 16:19:19 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 12:26:08 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,23 @@
 # include <stdio.h>
 # include <fcntl.h>
 
+// variable
+# define CANVAS_WIDTH 100
+# define CANVAS_HEIGHT 40
+# define USLEEP_TIME 100000
+# define ROT_ANGLE_DENOM 48
+# define TERMINAL_Y_PER_X 2.5
+# define INIT_ROTATE_X 0.0
+# define INIT_ROTATE_Y 0.0
+# define INIT_ROTATE_Z 0.0
+# define LINE_DRAW_FLAG 1
+# define Z_RANGE 1.0
+# define ZOOM_IN_ADDITION 0.8
+
+// constant
 # define GNL_BUFFER_SIZE 1000
 # define PI 3.141592653589793
-# define CANVAS_WIDTH 80
-# define CANVAS_HEIGHT 40
-// # define X_PER_Y 2.5
+# define Z_SCREEN -1
 
 typedef struct s_p_3d
 {
@@ -32,9 +44,32 @@ typedef struct s_p_3d
 	double		z;
 }				t_p_3d;
 
+typedef struct s_p_2d
+{
+	double		x;
+	double		y;
+}				t_p_2d;
+
+typedef enum e_axis
+{
+	X = 0,
+	Y = 1,
+	Z = 2
+}			t_axis;
+
+// main
 t_p_3d	*read_p_3d_from_file(const char *file_path, int *p_num);
+void	init_object(t_p_3d *p_3ds, const int p_num);
+void	loop_draw_object(t_p_3d *p_3ds, const int p_num);
+void	draw_object_to_canvas(t_p_3d *p_3ds,
+			const int p_num, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH]);
 
 // utils
+void	rotate_3d_object(t_p_3d *p_3ds,
+			const int p_num, const t_axis axis, const double angle);
+void	clear_terminal(void);
+void	move_cursor_to_top(void);
+void	clear_terminal_behind_cursor(void);
 int		get_next_line(int fd, char **line);
 void	exit_with_errout(const char *errmsg);
 void	exit_with_perrout(const char *str);

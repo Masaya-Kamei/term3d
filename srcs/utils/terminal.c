@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   terminal.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 13:12:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 12:25:25 by mkamei           ###   ########.fr       */
+/*   Created: 2022/02/22 10:25:32 by mkamei            #+#    #+#             */
+/*   Updated: 2022/02/22 10:39:57 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "term3d.h"
 
-int	main(int argc, char **argv)
+void	clear_terminal(void)
 {
-	t_p_3d	*p_3ds;
-	int		p_num;
+	puts("\033[2J");
+}
 
-	if (argc != 2)
-		exit_with_errout("Invalid arguments");
-	p_3ds = read_p_3d_from_file(argv[1], &p_num);
-	init_object(p_3ds, p_num);
-	loop_draw_object(p_3ds, p_num);
-	free(p_3ds);
-	return (0);
+void	move_cursor_to_top(void)
+{
+	puts("\033[1;1H");
+}
+
+void	clear_terminal_behind_cursor(void)
+{
+	puts("\033[0J");
 }

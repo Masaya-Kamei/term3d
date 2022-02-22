@@ -6,14 +6,15 @@
 #    By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 13:11:24 by mkamei            #+#    #+#              #
-#    Updated: 2022/02/21 14:58:20 by mkamei           ###   ########.fr        #
+#    Updated: 2022/02/22 10:58:18 by mkamei           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 vpath	%.c srcs:srcs/utils
 
 SRCSDIR	:= srcs
-SRCSNAME:=	main.c read_file.c debug.c exit.c get_next_line.c
+SRCSNAME:=	main.c read_file.c init_object.c loop_draw.c draw_object.c \
+			debug.c exit.c get_next_line.c rotate.c terminal.c
 SRCS	:= $(addprefix $(SRCSDIR)/, $(SRCSNAME))
 
 OBJSDIR :=	objs
