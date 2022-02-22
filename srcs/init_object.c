@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:32:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 17:11:39 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 18:02:13 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,10 @@ void	init_object(t_p_3d *p_3ds, const int p_num)
 {
 	move_object_to_origin(p_3ds, p_num);
 	scale_object(p_3ds, p_num);
-	rotate_3d_object(p_3ds, p_num, X, INIT_ROTATE_X);
-	rotate_3d_object(p_3ds, p_num, Y, INIT_ROTATE_Y);
-	rotate_3d_object(p_3ds, p_num, Z, INIT_ROTATE_Z);
+	if (INIT_ROT_X_DENOM != 0)
+		rotate_3d_object(p_3ds, p_num, X, PI / INIT_ROT_X_DENOM);
+	if (INIT_ROT_Y_DENOM != 0)
+		rotate_3d_object(p_3ds, p_num, Y, PI / INIT_ROT_Y_DENOM);
+	if (INIT_ROT_Z_DENOM != 0)
+		rotate_3d_object(p_3ds, p_num, Z, PI / INIT_ROT_Z_DENOM);
 }

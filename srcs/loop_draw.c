@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:21:26 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 10:40:22 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/22 18:08:05 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	loop_draw_object(t_p_3d *p_3ds, const int p_num)
 			draw_object_to_canvas(p_3ds, p_num, canvas);
 			print_canvas(canvas);
 			clear_terminal_behind_cursor();
+			if (ROT_ANGLE_DENOM == 0)
+				return ;
 			usleep(USLEEP_TIME);
 			rotate_3d_object(p_3ds, p_num, rotate_axis, PI / ROT_ANGLE_DENOM);
 			rotate_count++;
