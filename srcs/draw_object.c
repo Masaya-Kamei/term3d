@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:35:14 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 15:40:22 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/23 10:47:02 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_p_2d	perspective_projection(t_p_3d p_3d)
 {
 	const double	max_abs_z = fmin(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-	const double	new_max_abs_z = Z_RANGE / 2.0;
+	const double	new_max_abs_z = (MIN_SCALE_DENOM - 1) / 2.0;
 	const double	scaled_z = (p_3d.z / max_abs_z) * new_max_abs_z;
 	const double	shifted_z = scaled_z + Z_SCREEN - new_max_abs_z;
 	t_p_2d			p_2d;
@@ -30,7 +30,7 @@ static t_p_2d	get_canvas_p_2d_from_p_3d(t_p_3d p_3d)
 	t_p_2d	p_2d;
 
 	p_2d = perspective_projection(p_3d);
-	p_2d.x *= TERMINAL_Y_PER_X;
+	p_2d.x *= TER_CHAR_Y_PER_X;
 	p_2d.y *= -1;
 	p_2d.x += (CANVAS_WIDTH - 1) / 2;
 	p_2d.y += (CANVAS_HEIGHT - 1) / 2;

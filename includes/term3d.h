@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 18:26:23 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/23 10:46:38 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 # define INIT_ROT_X_DENOM 4.0
 # define INIT_ROT_Y_DENOM 0.0
 # define INIT_ROT_Z_DENOM 0.0
-# define TERMINAL_Y_PER_X 2.0
+# define TER_CHAR_Y_PER_X 2.0
 # define LINE_DRAW_FLAG 1
-# define Z_RANGE 1.0
+# define MIN_SCALE_DENOM 2
 # define ZOOM_IN_ADDITION 1.0
 
 // constant
