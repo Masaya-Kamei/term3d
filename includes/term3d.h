@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/25 11:49:17 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/25 12:05:41 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	rotate_3d_object(t_p_3d *p_3ds,
 			const int p_num, const t_axis axis, const double angle);
 
 // utils
-double	get_min_distance_from_canvas_center_to_frame(void);
+double	get_min_distance_from_canvas_center_to_end(void);
 void	clear_terminal(void);
 void	move_cursor_to_top(void);
 void	clear_terminal_behind_cursor(void);

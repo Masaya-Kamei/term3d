@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:32:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/25 11:50:57 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/25 12:06:19 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ static void	scale_object(t_p_3d *p_3ds, const int p_num)
 {
 	int				i;
 	const double	max_dist = get_max_distance_from_origin(p_3ds, p_num);
-	const double	new_max_dist
-		= get_min_distance_from_canvas_center_to_frame();
+	const double	new_max_dist = get_min_distance_from_canvas_center_to_end();
 
 	i = 0;
 	while (i < p_num)
