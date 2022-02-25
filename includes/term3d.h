@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/23 10:46:38 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/25 11:49:17 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,32 @@
 # include <fcntl.h>
 
 // variable
+// 出力される２次元配列の幅と高さ
 # define CANVAS_WIDTH 80
 # define CANVAS_HEIGHT 40
-# define USLEEP_TIME 100000
-# define ROT_ANGLE_DENOM 48.0
-# define INIT_ROT_X_DENOM 4.0
-# define INIT_ROT_Y_DENOM 0.0
-# define INIT_ROT_Z_DENOM 0.0
-# define TER_CHAR_Y_PER_X 2.0
-# define LINE_DRAW_FLAG 1
-# define MIN_SCALE_DENOM 2
+// 追加の拡大・縮小
 # define ZOOM_IN_ADDITION 1.0
+// 初期の図形の向き
+# define INIT_ROTATE_X (PI/4.0)
+# define INIT_ROTATE_Y 0.0
+# define INIT_ROTATE_Z 0.0
+// 描画間隔
+# define USLEEP_TIME 100000
+// 1回分の回転角度
+# define ROTATE_ANGLE (PI/48.0)
+// 3dファイル上で連続している点と点を繋いだ直線を書くかどうか
+# define LINE_DRAW_FLAG 1
+// ターミナル上の文字の縦横比
+# define TERMINAL_CHAR_Y_PER_X 2.0
+// 1/2 の場合、スクリーン上にある点を等倍、スクリーンから一番遠い点を1/2倍
+// 1/4 の場合、スクリーン上にある点を等倍、スクリーンから一番遠い点を1/4倍
+# define MIN_SCALE (1/2.0)
 
 // constant
 # define GNL_BUFFER_SIZE 1000
 # define PI 3.141592653589793
-# define Z_SCREEN -1
+// スクリーン(xy平面) のz 座標 (固定)
+# define SCREEN_Z -1
 
 typedef struct s_p_3d
 {
@@ -63,10 +73,11 @@ void	init_object(t_p_3d *p_3ds, const int p_num);
 void	loop_draw_object(t_p_3d *p_3ds, const int p_num);
 void	draw_object_to_canvas(t_p_3d *p_3ds,
 			const int p_num, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH]);
-
-// utils
 void	rotate_3d_object(t_p_3d *p_3ds,
 			const int p_num, const t_axis axis, const double angle);
+
+// utils
+double	get_min_distance_from_canvas_center_to_frame(void);
 void	clear_terminal(void);
 void	move_cursor_to_top(void);
 void	clear_terminal_behind_cursor(void);

@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:54:47 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 17:32:55 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/25 09:42:17 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ static t_p_3d	parse_line_to_p_3d(const char *line)
 	if (sscanf(line, "%lf,%lf,%lf%c", &p_3d.x, &p_3d.y, &p_3d.z, &c) != 3)
 		exit_with_errout("Invalid file");
 	if (isinf(p_3d.x) || isinf(p_3d.y) || isinf(p_3d.z))
-		exit_with_errout("Invalid file");
-	if (ft_strchr(ft_strchr(line, ',') + 1, ',') != ft_strrchr(line, ','))
 		exit_with_errout("Invalid file");
 	return (p_3d);
 }

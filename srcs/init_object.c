@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:32:37 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 18:02:13 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/25 11:50:57 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ static void	scale_object(t_p_3d *p_3ds, const int p_num)
 {
 	int				i;
 	const double	max_dist = get_max_distance_from_origin(p_3ds, p_num);
-	const double	new_max_dist = fmin(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+	const double	new_max_dist
+		= get_min_distance_from_canvas_center_to_frame();
 
 	i = 0;
 	while (i < p_num)
@@ -91,10 +92,10 @@ void	init_object(t_p_3d *p_3ds, const int p_num)
 {
 	move_object_to_origin(p_3ds, p_num);
 	scale_object(p_3ds, p_num);
-	if (INIT_ROT_X_DENOM != 0)
-		rotate_3d_object(p_3ds, p_num, X, PI / INIT_ROT_X_DENOM);
-	if (INIT_ROT_Y_DENOM != 0)
-		rotate_3d_object(p_3ds, p_num, Y, PI / INIT_ROT_Y_DENOM);
-	if (INIT_ROT_Z_DENOM != 0)
-		rotate_3d_object(p_3ds, p_num, Z, PI / INIT_ROT_Z_DENOM);
+	if (INIT_ROTATE_X != 0)
+		rotate_3d_object(p_3ds, p_num, X, INIT_ROTATE_X);
+	if (INIT_ROTATE_Y != 0)
+		rotate_3d_object(p_3ds, p_num, Y, INIT_ROTATE_Y);
+	if (INIT_ROTATE_Z != 0)
+		rotate_3d_object(p_3ds, p_num, Z, INIT_ROTATE_Z);
 }

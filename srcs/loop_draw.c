@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:21:26 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/22 18:08:05 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/25 10:19:07 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,36 @@ static void	print_canvas(char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
 	write(STDOUT_FILENO, "\n", 1);
 }
 
-void	loop_draw_object(t_p_3d *p_3ds, const int p_num)
+static void	draw_object(t_p_3d *p_3ds, const int p_num)
 {
 	char	canvas[CANVAS_HEIGHT][CANVAS_WIDTH];
+
+	move_cursor_to_top();
+	init_canvas(canvas);
+	draw_object_to_canvas(p_3ds, p_num, canvas);
+	print_canvas(canvas);
+	clear_terminal_behind_cursor();
+}
+
+void	loop_draw_object(t_p_3d *p_3ds, const int p_num)
+{
 	t_axis	rotate_axis;
-	int		rotate_count;
+	double	total_rotate_angle;
 
 	clear_terminal();
+	draw_object(p_3ds, p_num);
+	if (ROTATE_ANGLE == 0)
+		return ;
 	rotate_axis = X;
 	while (rotate_axis < 3)
 	{
-		rotate_count = 0;
-		while (rotate_count <= ROT_ANGLE_DENOM * 2)
+		total_rotate_angle = 0;
+		while (total_rotate_angle < 2 * PI)
 		{
-			move_cursor_to_top();
-			init_canvas(canvas);
-			draw_object_to_canvas(p_3ds, p_num, canvas);
-			print_canvas(canvas);
-			clear_terminal_behind_cursor();
-			if (ROT_ANGLE_DENOM == 0)
-				return ;
 			usleep(USLEEP_TIME);
-			rotate_3d_object(p_3ds, p_num, rotate_axis, PI / ROT_ANGLE_DENOM);
-			rotate_count++;
+			rotate_3d_object(p_3ds, p_num, rotate_axis, ROTATE_ANGLE);
+			total_rotate_angle += ROTATE_ANGLE;
+			draw_object(p_3ds, p_num);
 		}
 		rotate_axis++;
 	}
