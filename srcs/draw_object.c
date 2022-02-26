@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:35:14 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/25 12:05:06 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/26 16:16:03 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ static t_p_2d	get_canvas_p_2d_from_p_3d(t_p_3d p_3d)
 	return (canvas_p_2d);
 }
 
-static void	draw_point_to_canvas(
-	t_p_2d p, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
+static void	draw_point_to_canvas(t_p_2d p, t_canvas canvas)
 {
 	if (p.x >= 0 && p.x < CANVAS_WIDTH && p.y >= 0 && p.y < CANVAS_HEIGHT)
 	{
@@ -52,8 +51,7 @@ static void	draw_point_to_canvas(
 	}
 }
 
-static void	draw_line_to_canvas(
-	t_p_2d p, t_p_2d q, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
+static void	draw_line_to_canvas(t_p_2d p, t_p_2d q, t_canvas canvas)
 {
 	double	x_step;
 	double	y_step;
@@ -76,8 +74,7 @@ static void	draw_line_to_canvas(
 	}
 }
 
-void	draw_object_to_canvas(
-	t_p_3d *p_3ds, const int p_num, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
+void	draw_object_to_canvas(t_p_3d *p_3ds, const int p_num, t_canvas canvas)
 {
 	int		i;
 	t_p_2d	canvas_p;

@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/25 12:12:59 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/26 16:18:25 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,13 @@ typedef enum e_axis
 	Z = 2
 }			t_axis;
 
+typedef char	t_canvas[CANVAS_HEIGHT][CANVAS_WIDTH];
+
 // main
 t_p_3d	*read_p_3d_from_file(const char *file_path, int *p_num);
 void	init_object(t_p_3d *p_3ds, const int p_num);
 void	loop_draw_object(t_p_3d *p_3ds, const int p_num);
-void	draw_object_to_canvas(t_p_3d *p_3ds,
-			const int p_num, char canvas[CANVAS_HEIGHT][CANVAS_WIDTH]);
+void	draw_object_to_canvas(t_p_3d *p_3ds, const int p_num, t_canvas canvas);
 void	rotate_3d_object(t_p_3d *p_3ds,
 			const int p_num, const t_axis axis, const double angle);
 

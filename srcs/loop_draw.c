@@ -6,13 +6,13 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:21:26 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/25 10:19:07 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/26 16:17:10 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "term3d.h"
 
-static void	init_canvas(char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
+static void	init_canvas(t_canvas canvas)
 {
 	int		i;
 
@@ -36,7 +36,7 @@ static void	putchar_num(const char c, const int width)
 	}
 }
 
-static void	print_canvas(char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
+static void	print_canvas(t_canvas canvas)
 {
 	int		i;
 
@@ -56,7 +56,7 @@ static void	print_canvas(char canvas[CANVAS_HEIGHT][CANVAS_WIDTH])
 
 static void	draw_object(t_p_3d *p_3ds, const int p_num)
 {
-	char	canvas[CANVAS_HEIGHT][CANVAS_WIDTH];
+	t_canvas	canvas;
 
 	move_cursor_to_top();
 	init_canvas(canvas);
