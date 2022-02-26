@@ -1,10 +1,13 @@
-# 42 fdf
+# 42 term3d
 
 Render 3D objects to the terminal with perspective projection.
+
+## Usage
 
 `./term3d [3d_file]`
 
 3d file example:
+
 torus.3d
 
 ```txt
@@ -21,13 +24,21 @@ torus.3d
 
 ## Demo
 
-## Usage example
+torus
+
+![torus](https://user-images.githubusercontent.com/50983708/155822346-9bb660ce-6a98-473d-bf16-c0b33cdc2e97.gif)
+
+cube
+
+![cube](https://user-images.githubusercontent.com/50983708/155822351-1d074f37-cff1-4d4b-9c94-880a199a5bdf.gif)
+
+## Script
 
 ```zsh
 git clone https://github.com/Masaya-Kamei/term3d.git --recursive;
 cd term3d;
 make;
-./term3d figures/torus.fdf;
+./term3d figures/torus.3d;
 ```
 
 ## Tool
