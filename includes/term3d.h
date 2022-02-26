@@ -6,7 +6,7 @@
 /*   By: mkamei <mkamei@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:11:59 by mkamei            #+#    #+#             */
-/*   Updated: 2022/02/25 12:05:41 by mkamei           ###   ########.fr       */
+/*   Updated: 2022/02/25 12:12:59 by mkamei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 // variable
 // 出力される２次元配列の幅と高さ
-# define CANVAS_WIDTH 80
+# define CANVAS_WIDTH 100
 # define CANVAS_HEIGHT 40
 // 追加の拡大・縮小
 # define ZOOM_IN_ADDITION 1.0
@@ -36,7 +36,7 @@
 // 3dファイル上で連続している点と点を繋いだ直線を書くかどうか
 # define LINE_DRAW_FLAG 1
 // ターミナル上の文字の縦横比
-# define TERMINAL_CHAR_Y_PER_X 2.0
+# define TERMINAL_CHAR_Y_PER_X 2.5
 // 1/2 の場合、スクリーン上にある点を等倍、スクリーンから一番遠い点を1/2倍
 // 1/4 の場合、スクリーン上にある点を等倍、スクリーンから一番遠い点を1/4倍
 # define MIN_SCALE (1/2.0)
