@@ -32,7 +32,7 @@ cube
 
 ![cube](https://user-images.githubusercontent.com/50983708/155822351-1d074f37-cff1-4d4b-9c94-880a199a5bdf.gif)
 
-## Sample script
+## Script
 
 ```zsh
 git clone https://github.com/Masaya-Kamei/term3d.git --recursive;
