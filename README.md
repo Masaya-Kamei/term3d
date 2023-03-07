@@ -19,10 +19,10 @@ cube
 ## Usage
 
 ```zsh
-git clone https://github.com/Masaya-Kamei/term3d.git --recursive;
-cd term3d;
-make;
-./term3d [3d_file];
+git clone https://github.com/Masaya-Kamei/term3d.git --recursive
+cd term3d
+make
+./term3d [3d_file]
 ```
 
 3d_file の例: `figures/torus.3d`
