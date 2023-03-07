@@ -1,14 +1,31 @@
 # 42 term3d
 
-Render 3D objects to the terminal with perspective projection.
+## 概要
+
+透視投影を使った3Dプロジェクション
+- オブジェクトのファイルを読み込む
+- 3次元の点をxy平面に正射影して基底変換する等角投影法に加えて、z値で割ることで奥行きを表現
+
+## Demo
+
+torus
+
+![torus](https://user-images.githubusercontent.com/50983708/155822346-9bb660ce-6a98-473d-bf16-c0b33cdc2e97.gif)
+
+cube
+
+![cube](https://user-images.githubusercontent.com/50983708/155822351-1d074f37-cff1-4d4b-9c94-880a199a5bdf.gif)
 
 ## Usage
 
-`./term3d [3d_file]`
+```zsh
+git clone https://github.com/Masaya-Kamei/term3d.git --recursive;
+cd term3d;
+make;
+./term3d [3d_file];
+```
 
-3d file example:
-
-torus.3d
+3d_file の例: `figures/torus.3d`
 
 ```txt
 1.544456534909866,2.5718969675658103,5
@@ -22,24 +39,9 @@ torus.3d
 .....
 ```
 
-## Demo
+## キーワード
 
-torus
-
-![torus](https://user-images.githubusercontent.com/50983708/155822346-9bb660ce-6a98-473d-bf16-c0b33cdc2e97.gif)
-
-cube
-
-![cube](https://user-images.githubusercontent.com/50983708/155822351-1d074f37-cff1-4d4b-9c94-880a199a5bdf.gif)
-
-## Script
-
-```zsh
-git clone https://github.com/Masaya-Kamei/term3d.git --recursive;
-cd term3d;
-make;
-./term3d figures/torus.3d;
-```
+`C`,`3Dプロジェクション`,`透視投影`,`ベクトル`,`正射影`,基底変換`,`軸周りの回転`
 
 ## Tool
 
